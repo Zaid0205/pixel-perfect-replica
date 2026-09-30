@@ -83,8 +83,10 @@ export function DashboardLayout({
         </div>
 
         {children}
+        <MobileNav />
       </div>
     </div>
+
   );
 }
 
