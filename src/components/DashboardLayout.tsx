@@ -2,6 +2,8 @@ import { useEffect, useState, type ReactNode } from "react";
 import { useNavigate, Link, useRouterState } from "@tanstack/react-router";
 import { Moon, Sun, Bell, User, Menu } from "lucide-react";
 import { AppSidebar } from "@/components/AppSidebar";
+import { MobileNav } from "@/components/mobile-nav";
+
 import { useAuth } from "@/hooks/useAuth";
 import { useTheme } from "@/hooks/useTheme";
 
