@@ -39,20 +39,30 @@ function ProfilePage() {
       .update({ full_name: fullName })
       .eq("id", user.id);
     setBusy(false);
-    if (error) return toast.error(error.message);
+    if (error) {
+      toast.error(error.message);
+      return;
+    }
     await refreshProfile();
     toast.success("Profile updated");
   };
 
   const changePassword = async () => {
-    if (password.length < 6) return toast.error("Password must be at least 6 characters");
+    if (password.length < 6) {
+      toast.error("Password must be at least 6 characters");
+      return;
+    }
     setBusy(true);
     const { error } = await supabase.auth.updateUser({ password });
     setBusy(false);
-    if (error) return toast.error(error.message);
+    if (error) {
+      toast.error(error.message);
+      return;
+    }
     setPassword("");
     toast.success("Password changed");
   };
+
 
   return (
     <DashboardLayout title="Profile" subtitle="Your account details">
